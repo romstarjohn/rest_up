@@ -1,0 +1,34 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+      
+
+
+        
+  
+  <div class="container">
+    <div class="row">
+      <form action="/restaurants/" method="post">
+        <div class="row">
+          <div class="col-md-offset-3 col-sm-offset-3 col-xs-offset-3 col-md-6 col-sm-6 col-xs-6">
+            <div class="form-group">
+              <select class="form-select form-select-lg mb-3" name="id" aria-label=".form-select-lg example">
+                <% for(var attributename in data){%>  
+                  <option value="<%= attributename %>"><%= data[attributename].name %></option>
+                <% } %>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;">        
+          <input class="button btn" type="submit" id="commandevalidez" value="login" style="margin-right: 50px;"></input>
+          <a class="button" href="/"><strong>retour</strong></a>
+         </div>
+
+      </form>
+    </div>
+  </div>
+
+
+
+<script type="text/javascript" src="/js/restaurants.js"></script>
+<%- include('footer') -%>

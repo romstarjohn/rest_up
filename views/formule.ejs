@@ -1,0 +1,66 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+  <section>
+  <h1 style="text-align: center;">Formulaire</h1>
+  <div class="container">
+
+
+    <% if (errors) { %>
+      <div class="alert alert-danger">
+        <ul>
+          <% errors.forEach(function (error) {%>
+           <li><%= error.msg %></li>
+          <%});%>
+        </ul>
+      </div>
+    <% } %>
+    <div class="row">
+      <form action="/order/commander" method="post">
+        <div class="row">
+          <div class="col-md-offset-3 col-sm-offset-3 col-xs-offset-3 col-md-6 col-sm-6 col-xs-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="id" name="restaurant_id"  value="<%= id_o %>" required hidden>
+            </div>
+            <div class="form-group">
+              <label for="name" class="form-label">Nom:</label>
+              <input type="text" class="form-control" id="nom" name = "usernom"  required>
+            </div>
+            <div class="form-group">
+              <label for="Nombre de repas" class="form-label">Nombre de repas:</label>
+              <input type="number" class="form-control" id="nbrepas" name="user-nbrepas"  required minlength="1" maxlength="20">
+            </div>
+            <div class="form-group">
+              <label for="rue" class="form-label">Rue:</label>
+              <input type="text" class="form-control" id="rue" name="user-rue"  required>
+            </div>
+            <div class="form-group">
+              <label for="Numero maison" class="form-label">Numero maison:</label>
+              <input type="text" class="form-control" id="nbmaison" name="user-nbmaison" >
+            </div>
+            <div class="form-group">
+              <label for="Numero de boite" class="form-label">Numero de boite:</label>
+              <input type="text" class="form-control" id="nbboite" name="user-nbboite">
+            </div>
+            <div class="form-group">
+              <label for="code Postal" class="form-label">Code Postal:</label>
+              <input type="number" class="form-control" id="Cp" name="user-Cp" required min="1000" max="9999">
+            </div>
+            <div class="form-group">
+              <label for="Commune" class="form-label">Commune</label>
+              <input type="text" class="form-control" id="Commune"  name="user-Commune"required>
+            </div>
+              <input class="button" type="submit" id="commandevalidez" value="Valider" style="margin-right: 50px;"></input>
+              <a class="button" href="/order"><strong>retour</strong></a>
+          </div>
+        </div>   
+      </form>
+    </div>
+  </div>
+</section>
+
+  
+
+
+
+
+<%- include('footer') -%>

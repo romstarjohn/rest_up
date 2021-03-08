@@ -1,0 +1,37 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+        <center> <img src="logo.png" alt="logo du site" id="logo"></center>
+      
+
+      <section>
+        <div class="container">
+            <div class="row">
+              <table>
+
+                 <% for(var attributename in data){%>
+                  <tr>
+                  
+                    <td><%= data[attributename].name %></td>
+                    <td><%= data[attributename].Menu %><a href="/order/commander/<%= attributename %>">Commander</a></td>
+
+                  </tr>
+
+                <% } %>
+    
+
+                <% for(var i=0; i < data.length; i++) { %>
+                  <tr>
+                  
+                    <td><%= data[i].name %></td>
+                    <td><%= data[i].Menu %></td>
+                  
+                  </tr>
+                <% } %>
+              </table>
+            </div>
+        </div>
+      </section>
+
+
+
+      <%- include('footer') -%>

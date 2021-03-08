@@ -1,0 +1,38 @@
+{
+	"1":{
+		"name" : "Mrs Tchop",
+		"Menu" : "Aile de polets braisé",
+		"prix": 15,
+		"adresse" : "Avenue du Diamant 19A, 1030 Schaerbeek, Belgique",
+		"id" : 1
+	},
+	"2":{
+		"name" : "Le Clergers",
+		"Menu" : "Riz au tomate farcis",
+		"prix": 30,
+		"adresse" : "Rue de Florence 20, 1050 Bruxelles, Belgique",
+		"id" : 2
+	},
+	"3":{
+		"name" : "La CREVETTES",
+		"Menu" : "crevettes à l'ailles",
+		"prix": 12,
+		"adresse" : "Rue des Renards 30, 1000 Bruxelles, Belgique",
+		"id" : 3
+	},
+	"4":{
+		"name" : "AFRIKA ONE",
+		"Menu" : "Pillé Macabot",
+		"prix": 19,
+		"adresse" : "Rue des Bouchers 13, 1000 Bruxelles, Belgique",
+		"id" : 4
+	},
+	"5":{
+		"name" : "Delicious",
+		"Menu" : "Aile de polets braisé",
+		"prix": 25,
+		"adresse" : "Rue Paul Devaux 4, 1000 Bruxelles, Belgique",
+		"id" : 5
+	}
+	
+}

@@ -1,0 +1,33 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+      
+
+
+<div class="container-fluid">
+  <% if (errors) { %>
+    <div class="alert alert-danger">
+      <ul>
+        <% errors.forEach(function (error) {%>
+         <li><%= error.msg %></li>
+        <%});%>
+      </ul>
+    </div>
+  <% } %>
+  
+  <div class="container">
+    <div class="row">
+      <form method="POST" action="/livreurs">
+        <label for="fname">Prenom:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Nom:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript" src="/js/livreurs.js"></script>
+<%- include('footer') -%>

@@ -1,0 +1,70 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+    <section>
+      <div class="container">
+        <div id="map">
+        </div>
+      </div>
+      
+      <p id="idLivreur" style="display: hidden;"><%= id_l %> </p>
+      <div class="container">
+          <div class="row">
+            <h1 style="text-align: center;">Ecran de livraison de commande - Livreurs</h1>
+          </div>
+
+          <% if (Object.keys(data).length === 0) { %>
+            <div class="alert">
+              <p>Aucun restaurant trouver avec cet identifiants</p>
+            </div>
+          <% } else { %> 
+            <div class="row">
+              <div class="list-group">
+                <div href="#" class="list-group-item list-group-item-action">
+                  <p class="mb-1" >identifiants de la commande : <span id="idCommande"><%= data["idCommande"] %></span></p>
+                  <p class="mb-1">Nom du client : <%= data.usernom %></p>
+                  <p class="mb-1">Nombre de repas : <%= data["user-nbrepas"] %></p>
+                  <p class="mb-1">Rue : <%= data["user-rue"] %></p>
+                  <% if ( data["user-nbboite"] === null) { %>
+                    
+                  <% } else { %> 
+                    <p class="mb-1">Nombre de repas : <%= data["user-nbboite"] %></p>
+                  <% } %>
+
+                  <% if ( data["user-nbboite"] === null) { %>
+                    
+                    <% } else { %> 
+                      <p class="mb-1">Nombre de repas : <%= data["user-Cp"]  %></p>
+                    <% } %>
+                  <p class="mb-1">Nombre de repas : <%= data["user-Commune"] %></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" id="livrerCommande">
+                Livrer une commande
+                </button>
+            </div>
+
+          <% } %>
+      </div>
+      <div class="container">
+        <% if (coordonees) { %>  
+          <p> <span id="latitude" style="display: none;"><%= coordonees.latitude %></p>
+          <p> <span id="longitude" style="display: none;"><%= coordonees.longitude %></p>              
+        <% } %>
+      </div>
+    </section>
+
+
+	  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+	  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJMhqQueSoVPQyVavQgkk9w_1a1-bKjkE&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+    <script type="text/javascript" src="/js/commanderValidation.js"></script>
+
+
+      <%- include('footer') -%>

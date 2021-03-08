@@ -1,0 +1,51 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+    <section>
+          
+
+      <div class="container">
+        <div id="map">
+
+        </div>
+      </div>
+      
+        <div class="container">
+            <div class="row">
+              <h1 style="text-align: center;">Page de confirmation</h1>
+            </div>
+            <div class="row">
+              <div class="list-group">
+                 <% if (data) { %>
+                <p style="display: none;"> <span id="restaurant_id"><%= data["restaurant_id"]%></span></p>
+                <p> Nom : <span id="usernom"><%= data["usernom"] %></span></p>
+                <p> Nombre de repas : <span id="user-nbrepas"><%= data["user-nbrepas"] %></span></p>
+                <p> Rue : <span id="user-rue"><%= data["user-rue"] %></span></p>
+                <p> Numéro Maison : <span id="user-nbmaison"><%= data["user-nbmaison"] %></span></p>
+                <p> Numero de la boite : <span id="user-nbboite"><%= data["user-nbboite"] %></span></p>
+                <p> Code Postal : <span id="user-Cp"><%= data["user-Cp"] %></span></p>
+                <p> Commune : <span id="user-Commune"><%= data["user-Commune"] %></span></p>
+                <a id="confirmer" class="btn-link btn">Confirmer la commande</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="container">
+          <% } %>
+          <% if (coordonees) { %>  
+          <p> <span id="latitude" style="display: none;"><%= coordonees.latitude %></p>
+          <p> <span id="longitude" style="display: none;"><%= coordonees.longitude %></p>              
+          <% } %>
+        </div>
+      </section>
+
+
+	  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+	  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJMhqQueSoVPQyVavQgkk9w_1a1-bKjkE&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+    <script type="text/javascript" src="/js/commanderValidation.js"></script>
+
+
+      <%- include('footer') -%>

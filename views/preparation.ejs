@@ -1,0 +1,95 @@
+<%- include('header'); -%>
+
+<link rel="stylesheet" href="/css/style.css" />
+      
+
+
+
+<div id="contenue">
+  <div class="container">
+    <div class="row">
+      <p class="font-weight-bold text-center" style="background-color: #e3f2fd;padding-top: 10px;padding-bottom: 10px;"><strong>Statistics commande </strong> </p><hr>
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="text-center">
+          <h2 class="h1 mb-0" id="rest_preparer"><%- obj_o.rest_preparer %></h2>
+          <p><strong>Restant à préparer</strong></p>
+        </div>
+      </div>
+          
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="text-center">
+          <h2 class="h1 mb-0" id="rest_enlever"><%- obj_o.rest_enlever %></h2>
+          <p><strong>Préparer mais pas enlever</strong></p>
+        </div>
+      </div>
+          
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="text-center">
+          <h2 class="h1 mb-0" id="deja_enlever"><%- obj_o.deja_enlever %> </h2>
+          <p><strong>Répas déjà enlevés</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="text-center">
+          <h2 class="h1 mb-0" id="duree_moyenne_prep"><%- obj_o.duree_moyenne_prep %> </h2>
+          <p><strong>Delai de préparation</strong></p>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12 mb-8">
+        <div class="text-center">
+          <h2 class="h1 mb-0" id="heureMiseAjour"><%- obj_o.heureMiseAjour %></h2>
+          <p><strong>Derniere mise à jour</strong></p>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+  
+  <div class="container">
+    
+    <div class="row">
+      <p class="font-weight-bold text-center" style="background-color: #e3f2fd;margin-top: 30px;margin-bottom: 30px;padding-top: 10px;padding-bottom: 10px;"><strong>Nouvelle Commande</strong></p><hr>
+    </div>
+    <div class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+
+            <th scope="col">Numero de la commande</th>
+            <th scope="col">Date et heure commande</th>
+            <th scope="col">Nombre de repas à preparer</th>
+            <th scope="col">Preparer la commande</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        <% if (obj_o.data.length == 0) { %>
+          <tr><td id="">Aucune Commande n'a encore été enregistré pour ce restaurant</td></tr> 
+        <% } else { %>
+        <% for(var attributename in obj_o.data){%>
+          <% if (obj_o.data[attributename].status == 0) { %>
+          <tr>
+
+            <td class="idCommande" scope="row"><%= obj_o.data[attributename].idCommande %></td>
+            <td class="date_debut"><%= obj_o.data[attributename].date_debut %></td>
+            <td class="user-nbrepas"><%= obj_o.data[attributename]["user-nbrepas"] %></td>
+            
+            <td><a class="prep_btn" attrib_id ="<%= obj_o.data[attributename].idCommande %>"  attrib_nbreRepas="<%= obj_o.data[attributename]["user-nbrepas"] %>">Preparer</a></td>
+          </tr>
+          <% } %>
+        <% } %>
+        </tbody>
+      </table>
+        <% } %>
+    </div>
+  </div>
+</div>
+
+
+<p style="display: none;" id="id_restaurant"><%= id %></p>
+
+
+<script type="text/javascript" src="/js/restaurants.js"></script>
+
+<%- include('footer') -%>

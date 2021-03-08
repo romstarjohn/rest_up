@@ -1,0 +1,42 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+        <center> <img src="logo.png" alt="logo du site" id="logo"></center>
+      
+
+      <section>
+
+        <div class="container">
+          <div id="map">
+        
+          </div>
+        </div>
+
+        <div class="container">
+          <% if (Object.keys(data).length === 0) { %>
+            <div class="alert">
+              <p>Aucune commande enregistrer pour le moment</p>
+            </div>
+          <% } %>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+              <div class="list-group">
+                <% for(var attributename in data){%>  
+                <div href="#" class="list-group-item list-group-item-action">
+                  <h5 class="mb-1"><%= data[attributename].data.name %></h5>
+                  <p class="mb-1"><%= data[attributename].data.adresse  %><span style="float: right;"><a href="/livreurs/enlevercommande/<%=  attributename %>">Choisir</span></p>
+                </div>
+                <% } %>
+              </div>
+            </div>
+        </div>
+      </section>
+
+
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJMhqQueSoVPQyVavQgkk9w_1a1-bKjkE&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+      <script type="text/javascript" src="/js/livreurs.js"></script>
+      <%- include('footer') -%>

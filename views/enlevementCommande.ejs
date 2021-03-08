@@ -1,0 +1,89 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+    <section>
+          
+
+      <div class="container">
+        <div id="map">
+
+        </div>
+      </div>
+      
+      <div class="container">
+          <div class="row">
+            <h1 style="text-align: center;">Traitement de commande - Livreurs</h1>
+          </div>
+      
+          <% if (Object.keys(data).length === 0) { %>
+            <div class="alert">
+              <p>Aucun restaurant trouver avec cet identifiants</p>
+            </div>
+          <% } %>
+          <div class="row">
+            <div class="list-group">
+              <div href="#" class="list-group-item list-group-item-action">
+                <h5 class="mb-1"><%= data.name %></h5>
+                <p class="mb-1"><%= data.adresse  %></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Enlever une commande
+              </button>
+          </div>
+
+                <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Veillez entrer le numero de la commande</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="/livreurs/enlevercommande/">
+                <label for="fname">First name:</label><br>
+                <input type="number" id="idCommande" name="idCommande"  min="0"><br>
+                
+                <input type="submit" value="Enlever">
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+
+
+
+
+
+
+
+        <div class="container">
+      
+          <% if (coordonees) { %>  
+          <p> <span id="latitude" style="display: none;"><%= coordonees.latitude %></p>
+          <p> <span id="longitude" style="display: none;"><%= coordonees.longitude %></p>              
+          <% } %>
+        </div>
+      </section>
+
+
+	  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+	  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJMhqQueSoVPQyVavQgkk9w_1a1-bKjkE&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+    <script type="text/javascript" src="/js/commanderValidation.js"></script>
+
+
+      <%- include('footer') -%>

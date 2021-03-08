@@ -1,0 +1,59 @@
+<%- include('header'); -%>
+<link rel="stylesheet" href="/css/style.css" />
+
+
+	<div class="container">
+    	<h1 align="center"><%= title %></h1>
+	</div>
+
+	<div class="container">
+		<div id="map">
+
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row g-2">
+		  <div class="col-6">
+			<div class="p-3 border bg-light" align="center">
+				<h2 class="block_title"> Clients</h2>
+  				<p>La liste de nos restaurants et les plats du jour </p>
+  				<a class="button" href="/order">cliquer ici </a>
+			</div>
+		  </div>
+		  <div class="col-6">
+			<div class="p-3 border bg-light" align="center">
+				<h2 class="block_title"> Retaurants</h2>
+  				<p>Connectez vous à votre restaurant</p>
+  				<a class="button" href="/restaurants">cliquer ici </a>
+			</div>
+		  </div>
+		  <div class="col-6">
+			<div class="p-3 border bg-light" align="center">
+				<h2 class="block_title">Livreurs</h2>
+  				<p>Connectez vous en tant que livreurs</p>
+  				<a class="button" href="/livreurs">S'enregistrer </a>
+			</div>
+		  </div>
+		  <div class="col-6">
+			<div class="p-3 border bg-light" align="center">
+				<h2 class="block_title">Gestionnaires</h2>
+  				<p>Connectez vous en tant que gestionnaires</p>
+  				<a class="button" href="/gestionaires">Se connecter </a>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+
+
+	  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+	  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJMhqQueSoVPQyVavQgkk9w_1a1-bKjkE&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+    <script type="text/javascript" src="/js/main.js"></script>
+<%- include('footer') -%>
+
+
